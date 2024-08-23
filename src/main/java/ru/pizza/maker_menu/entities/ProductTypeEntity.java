@@ -1,12 +1,14 @@
 package ru.pizza.maker_menu.entities;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-@Data
+@Getter
+@Setter
 @Table(name = "product_type")
-public class ProductType {
+public class ProductTypeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -15,6 +17,5 @@ public class ProductType {
 
     public enum Type {
         PIZZA, COFFEE;
-
     }
 }

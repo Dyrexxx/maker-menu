@@ -24,7 +24,7 @@
             <button>Добавить</button>
         </form>
 
-        <form th:method="post" class="input-product" th:action="@{/maker/create}" th:object="${createProduct}">
+        <form th:method="post" class="input-productModel" th:action="@{/maker/create}" th:object="${createProduct}">
             <select th:field="*{type}">
                 <option th:each="i : ${productTypeList}" th:value="${i.type}" th:text="${i.type}"/>
             </select>
@@ -39,8 +39,8 @@
             <input type="submit" value="Создать">
         </form>
     </div>
-    <div class="list-product">
-        <div th:each="i, j : ${createProduct.getIngredientList()}">
+    <div class="list-productModel">
+        <div th:each="i, j : ${createProduct.getIngredientEntityList()}">
             <p th:text="${i.title}"></p>
             <p th:text="${i.weight}+' грамм.'"></p>
         </div>

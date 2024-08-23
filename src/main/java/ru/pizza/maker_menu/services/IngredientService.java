@@ -1,35 +1,33 @@
 package ru.pizza.maker_menu.services;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.pizza.maker_menu.entities.Ingredient;
+import ru.pizza.maker_menu.dao.IngredientDAO;
+import ru.pizza.maker_menu.entities.IngredientEntity;
 import ru.pizza.maker_menu.repositories.IngredientRepository;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class IngredientService {
-    private final IngredientRepository ingredientRepository;
+    private final IngredientDAO ingredientDAO;
 
-    @Autowired
-    public IngredientService(IngredientRepository ingredientRepository) {
-        this.ingredientRepository = ingredientRepository;
-    }
-
-    public List<Ingredient> index() {
-        return ingredientRepository.findAll();
+    public List<IngredientEntity> index() {
+        return ingredientDAO.findAll();
     }
 
     @Transactional
-    public void save(Ingredient ingredient) {
-        ingredientRepository.save(ingredient);
+    public void save(IngredientEntity ingredientEntity) {
+        ingredientDAO.save(ingredientEntity);
     }
 
     @Transactional
     public void delete(int id) {
-        ingredientRepository.deleteById(id);
+        ingredientDAO.deleteById(id);
     }
 
 }

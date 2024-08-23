@@ -1,25 +1,22 @@
 package ru.pizza.maker_menu.services;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.pizza.maker_menu.entities.ProductType;
+import ru.pizza.maker_menu.dao.ProductTypeDAO;
+import ru.pizza.maker_menu.entities.ProductTypeEntity;
 import ru.pizza.maker_menu.repositories.ProductTypeRepository;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class ProductTypeService {
-    private final ProductTypeRepository productTypeRepository;
+    private final ProductTypeDAO productTypeDAO;
 
-    @Autowired
-    public ProductTypeService(ProductTypeRepository productTypeRepository) {
-        this.productTypeRepository = productTypeRepository;
+    public List<ProductTypeEntity> index() {
+        return productTypeDAO.findAll();
     }
-
-    public List<ProductType> index() {
-        return productTypeRepository.findAll();
-    }
-
 }

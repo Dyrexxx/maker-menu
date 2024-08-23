@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ImageProduct {
+public class ImageModel {
     private String type;
     private byte[] file;
 }
