@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+
+    > .create-menu {
+
+        > .input-photo {
+            display: flex;
+            flex-direction: row;
+        }
+
+        > .input-product {
+            display: flex;
+            flex-direction: row;
+        }
+        > .list-product {
+            flex-direction: column;
+
+        }
+
+        > .input-ingredient {
+            display: flex;
+            flex-direction: row;
+        }
+        > .products {
+            flex-flow: wrap;
+        }
+    }
+}

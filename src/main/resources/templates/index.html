@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Создатель Меню</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+<div class="content">
+    <h1>Создать новое блюдо</h1>
+    <div class="create-menu">
+        <form th:method="post" class="input-photo" th:action="@{/maker/create/addFile}"
+              enctype="multipart/form-data">
+            <input type="file" name="file"/>
+            <input type="submit" value="Добавить"/>
+        </form>
+        <form method="post" class="input-ingredient" th:object="${newIngredient}">
+            <label for="ingredient">Добавить ингредиент</label>
+            <select id="ingredient" th:field="*{title}">
+                <option th:each="i : ${ingredientList}" th:value="${i.title}" th:text="${i.title}"/>
+            </select>
+            <label for="weight">Требуемая граммовка</label>
+            <input type="text" id="weight" th:field="*{weight}">
+            <button>Добавить</button>
+        </form>
+
+        <form th:method="post" class="input-product" th:action="@{/maker/create}" th:object="${createProduct}">
+            <select th:field="*{type}">
+                <option th:each="i : ${productTypeList}" th:value="${i.type}" th:text="${i.type}"/>
+            </select>
+                <label for="title">Название</label>
+                <input type="text" id="title" th:field="*{name}"/>
+
+                <label for="distinct">Описание</label>
+                <input type="text" id="distinct" th:field="*{description}"/>
+
+                <label for="price">Цена</label>
+                <input type="text" id="price" th:field="*{price}"/>
+            <input type="submit" value="Создать">
+        </form>
+    </div>
+    <div class="list-product">
+        <div th:each="i, j : ${createProduct.getIngredientList()}">
+            <p th:text="${i.title}"></p>
+            <p th:text="${i.weight}+' грамм.'"></p>
+        </div>
+    </div>
+
+
+    <div class="new-ingredient-content">
+        <form method="post" class="new-ingredient" th:action="@{/maker/ingredient/save}" th:object="${newIngredient}">
+            <h1>Добавить совершенно новый ингредиент</h1>
+            <label for="titleIngredient">Название</label>
+            <input type="text" th:field="*{title}" id="titleIngredient"/>
+            <input type="submit" value="Добавить">
+        </form>
+
+        <div class="content-last">
+            <h1>Имеющиеся ингредиенты</h1>
+            <form class="list-ingredients" th:each="i, j : ${ingredientList}" th:method="delete"
+                  th:action="@{/maker/ingredient/{id}/delete(id=${i.id})}">
+                <p th:text="${j.count} + ' ' + ${i.title}"></p>
+                <input type="submit" value="Удалить">
+            </form>
+
+
+        </div>
+
+
+        <div class="products">
+            <div th:each="i : ${productsList}">
+                <img th:src="'http://localhost:8082/'+${i.getUrlImage()}" width="300px" height="300px"/>
+                <p th:text="${i.name}"/>
+                <p th:text="${i.description}"/>
+                <p th:text="${i.price}"/>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
