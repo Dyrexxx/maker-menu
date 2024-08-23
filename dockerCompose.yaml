@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: postgres:16.3
+    environment:
+      - POSTGRES_DB=maker-menu
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Dimik2001.
+    ports:
+      - 5432:5432
+
+  maker-menu:
+    image: pizza-project/maker-menu:0.0.1-SNAPSHOT
+    ports:
+      - "8080:8080"
