@@ -1,9 +1,8 @@
 package ru.pizza.maker_menu.models;
 
-import com.fasterxml.jackson.annotation.JsonRawValue;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.web.multipart.MultipartFile;
+import ru.pizza.maker_menu.entities.Ingredient;
 
 import java.util.ArrayList;
 import java.util.List;

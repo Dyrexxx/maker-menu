@@ -1,4 +1,4 @@
-package ru.pizza.maker_menu.models;
+package ru.pizza.maker_menu.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;

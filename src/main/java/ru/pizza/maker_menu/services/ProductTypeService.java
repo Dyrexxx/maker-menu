@@ -3,7 +3,7 @@ package ru.pizza.maker_menu.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.pizza.maker_menu.models.ProductType;
+import ru.pizza.maker_menu.entities.ProductType;
 import ru.pizza.maker_menu.repositories.ProductTypeRepository;
 
 import java.util.List;

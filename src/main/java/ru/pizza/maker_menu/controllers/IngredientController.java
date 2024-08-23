@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.pizza.maker_menu.models.Ingredient;
+import ru.pizza.maker_menu.entities.Ingredient;
 import ru.pizza.maker_menu.services.IngredientService;
 
 import java.util.List;

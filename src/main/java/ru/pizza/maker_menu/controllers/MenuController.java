@@ -12,15 +12,14 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 import ru.pizza.maker_menu.models.ImageProduct;
-import ru.pizza.maker_menu.models.Ingredient;
+import ru.pizza.maker_menu.entities.Ingredient;
 import ru.pizza.maker_menu.models.Product;
-import ru.pizza.maker_menu.models.ProductType;
+import ru.pizza.maker_menu.entities.ProductType;
 import ru.pizza.maker_menu.services.IngredientService;
 import ru.pizza.maker_menu.services.ProductService;
 import ru.pizza.maker_menu.services.ProductTypeService;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 @Controller
