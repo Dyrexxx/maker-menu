@@ -1,5 +1,6 @@
 package ru.pizza.maker_menu.controllers;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -24,20 +25,13 @@ import java.util.List;
 
 @Controller
 @SessionAttributes("createProduct")
+@RequiredArgsConstructor
 @RequestMapping("/maker")
 public class MenuController {
     private final RestService restService;
     private final IngredientService ingredientService;
     private final RestTemplate restTemplate;
     private final ProductTypeService productTypeService;
-
-    @Autowired
-    public MenuController(RestService restService, IngredientService ingredientService, RestTemplate restTemplate, ProductTypeService productTypeService) {
-        this.restService = restService;
-        this.ingredientService = ingredientService;
-        this.restTemplate = restTemplate;
-        this.productTypeService = productTypeService;
-    }
 
     @ModelAttribute(name = "createProduct")
     public ProductModel product() {

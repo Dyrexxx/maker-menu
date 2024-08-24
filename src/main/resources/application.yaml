@@ -34,8 +34,8 @@ spring:
   sql:
     init:
       mode: always
-      schema-locations: classpath:scripts/schema/import_*_schema.sql
-      data-locations: classpath:scripts/data/import_*_data.sql
+      schema-locations: classpath:static/scripts/schema/import_*_schema.sql
+      data-locations: classpath:static/scripts/data/import_*_data.sql
 
 ---
 spring:
