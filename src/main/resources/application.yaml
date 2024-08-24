@@ -30,8 +30,9 @@ spring:
   jpa:
     properties:
       hibernate:
-        ddl-auto: none
         dialect: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none
   sql:
     init:
       mode: always
