@@ -20,36 +20,36 @@ spring:
     activate:
       on-profile: dev
   datasource:
-    url: jdbc:h2:mem:testDB
+    url: jdbc:h2:mem:testDB1
     password: sa
     username: password
     driver-class-name: org.h2.Driver
-  h2:
-    console:
-      enabled: true
   jpa:
+    hibernate:
+      ddl-auto: none
     properties:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
-    hibernate:
-      ddl-auto: none
   sql:
     init:
       mode: always
-      schema-locations: classpath:static/scripts/schema/import_*_schema.sql
-      data-locations: classpath:static/scripts/data/import_*_data.sql
+      data-locations: classpath:db/scripts/data/import_*_data.sql
+  liquibase:
+    change-log: classpath:db/migrations/h2-changeLog.xml
 
 ---
 spring:
   config:
     activate:
       on-profile: prod
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
   datasource:
     url: jdbc:postgresql://localhost:5432/maker-menu
     username: postgres
     password: Dimik2001.
     driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  liquibase:
+    change-log: classpath:db/migrations/postgres-changelog.xml
