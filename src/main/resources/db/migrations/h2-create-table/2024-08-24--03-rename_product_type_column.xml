@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet id="rename_product_type_column_on_type" author="Дмитрий Утин">
+        <renameColumn columnDataType="varchar"
+                      newColumnName="type"
+                      oldColumnName="title"
+                      remarks="Изменено название колонки на Type"
+                      schemaName="public"
+                      tableName="product_type"/>
+    </changeSet>
+</databaseChangeLog>
