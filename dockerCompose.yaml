@@ -9,6 +9,6 @@ services:
       - 5432:5432
 
   maker-menu:
-    image: pizza-project/maker-menu:latest
+    image: pizza-project/maker-menu:0.0.1-SNAPSHOT
     ports:
       - "8080:8080"
