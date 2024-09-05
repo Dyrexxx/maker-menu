@@ -13,6 +13,14 @@ spring:
     multipart:
       max-file-size: 15MB
       max-request-size: 15MB
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
 
 ---
 spring:
@@ -20,23 +28,22 @@ spring:
     activate:
       on-profile: dev
   datasource:
-    url: jdbc:h2:mem:testDB1
-    password: sa
-    username: password
-    driver-class-name: org.h2.Driver
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/maker-menu-dev
+    username: postgres
+    password: Dimik2001.
   jpa:
-    hibernate:
-      ddl-auto: none
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.H2Dialect
+        dialect: org.hibernate.dialect.PostgreSQLDialect
   sql:
     init:
       mode: always
-      data-locations: classpath:db/scripts/data/import_*_data.sql
-  liquibase:
-    change-log: classpath:db/migrations/h2-changeLog.xml
+      data-locations:
 
+eureka:
+  instance:
+    hostname: localhost
 ---
 spring:
   config:
@@ -53,3 +60,6 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
   liquibase:
     change-log: classpath:db/migrations/postgres-changelog.xml
+eureka:
+  instance:
+    hostname: eureka

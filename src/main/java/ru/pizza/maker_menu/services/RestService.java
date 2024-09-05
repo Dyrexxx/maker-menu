@@ -18,7 +18,7 @@ public class RestService {
 
     public List<ProductModel> getProducts() {
         ProductModel[] productModelArray =
-                restTemplate.getForEntity("http://localhost:8082/products/view",
+                restTemplate.getForEntity("http://PRODUCTS/products/view",
                                 ProductModel[].class)
                         .getBody();
         return List.of(productModelArray);
