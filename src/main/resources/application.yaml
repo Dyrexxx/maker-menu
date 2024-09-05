@@ -13,6 +13,8 @@ spring:
     multipart:
       max-file-size: 15MB
       max-request-size: 15MB
+  liquibase:
+    change-log: classpath:db/migrations/changelog.xml
 eureka:
   instance:
     prefer-ip-address: true
@@ -40,6 +42,8 @@ spring:
     init:
       mode: always
       data-locations:
+        - classpath:/db/scripts/data/import_product-type_data.sql
+        - classpath:/db/scripts/data/import_ingredient_data.sql
 
 eureka:
   instance:
@@ -58,8 +62,6 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-  liquibase:
-    change-log: classpath:db/migrations/postgres-changelog.xml
 eureka:
   instance:
     hostname: eureka
